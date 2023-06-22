@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <template>I have no answer for that.</template>
+  </category>
+  <!-- Greetings -->
+  <category>
+      <pattern>HI</pattern>
+      <template>Hello! I'm a bot that can help you evaluate potential career options. Would you like some career recommendations?</template>
+  </category>
+  <category>
+      <pattern>YES</pattern>
+      <that>WOULD YOU LIKE SOME CAREER RECOMMENDATIONS</that>
+      <template>Great! Do you enjoy working with artificial intelligence?</template>
+  </category>
+  <category>
+      <pattern>NO</pattern>
+      <that>WOULD YOU LIKE SOME CAREER RECOMMENDATIONS</that>
+      <template>I am only able to provide assistance with career options. For all other questions, please contact your advisor directly.</template>
+  </category>
+  
+  <!-- AI -->
+  <category>
+      <pattern>YES</pattern>
+      <that>DO YOU ENJOY WORKING WITH ARTIFICIAL INTELLIGENCE</that>
+      <template><srai>XAIYES</srai></template>
+  </category>
+  <category>
+      <pattern>NO</pattern>
+      <that>DO YOU ENJOY WORKING WITH ARTIFICIAL INTELLIGENCE</that>
+      <template><srai>XAINO</srai></template>
+  </category>
+  <category>
+      <pattern>XAIYES</pattern>
+      <that>DO YOU ENJOY WORKING WITH ARTIFICIAL INTELLIGENCE</that>
+      <think><set name="interest-ai">true</set></think>
+      <template>Great! AI is an exciting and fast growing field with plenty of career opportunities. <srai>XAIJOBDESCRIPTION</srai> Would you like to hear about other career options?</template>
+  </category>
+  <category>
+      <pattern>XAINO</pattern>
+      <that>DO YOU ENJOY WORKING WITH ARTIFICIAL INTELLIGENCE</that>
+      <think><set name="interest-ai">false</set></think>
+      <template><srai>XSOFTWAREQUESTION</srai></template>
+  </category>
+  <category>
+      <pattern>XAIJOBDESCRIPTION</pattern>
+      <template>Artificial Intelligence researchers develop solutions that allow computer programs to behave in more intelligent ways.</template>
+  </category>
+  
+  <!-- Software developer -->
+  <category>
+      <pattern>XSOFTWAREQUESTION</pattern>
+      <template>Are you interested in developing software?</template>
+  </category>
+  <category>
+      <pattern>XSWJOBDESCRIPTION</pattern>
+      <template>Software Developers are responsible for creating the applicaitons we all use on a daily basis.</template>
+  </category>
+  <category>
+      <pattern>YES</pattern>
+      <that>ARE YOU INTERESTED IN DEVELOPING SOFTWARE</that>
+      <template><srai>XSWYES</srai></template>
+  </category>
+  <category>
+      <pattern>NO</pattern>
+      <that>ARE YOU INTERESTED IN DEVELOPING SOFTWARE</that>
+      <template><srai>XSWNO</srai></template>
+  </category>
+  <category>
+      <pattern>XSWYES</pattern>
+      <think><set name="interest-sw">true</set></think>
+      <template><srai>XSWJOBDESCRIPTION</srai></template>
+  </category>
+  <category>
+      <pattern>XSWNO</pattern>
+      <think><set name="interest-sw">false</set></think>
+      <template><srai>XVULNQUESTION</srai></template>
+  </category>
+  
+  <!-- Vulnerability Researcher -->
+  <category>
+      <pattern>XVULNQUESTION</pattern>
+      <template>Are you interested in researching software vulnerabilities?</template>
+  </category>
+  <category>
+      <pattern>XVULNJOBDESCRIPTION</pattern>
+      <template>A software vulnerability researcher searches for unexpected or 
+      improper behavior within computer programs. These researchers can protect 
+      businesses from fiancial or reputational harm by finding and reporting 
+      software vulnerabilities before they are exploited.</template>
+  </category>
+  <category>
+      <pattern>YES</pattern>
+      <that>ARE YOU INTERESTED IN RESEARCHING SOFTWARE VULNERABILITIES</that>
+      <template><srai>XVULNYES</srai></template>
+  </category>
+  <category>
+      <pattern>NO</pattern>
+      <that>ARE YOU INTERESTED IN RESEARCHING SOFTWARE VULNERABILITIES</that>
+      <template><srai>XVULNNO</srai></template>
+  </category>
+  <category>
+      <pattern>XVULNYES</pattern>
+      <think><set name="interest-vuln">true</set></think>
+      <template><srai>XVULNJOBDESCRIPTION</srai></template>
+  </category>
+  <category>
+      <pattern>XVULNNO</pattern>
+      <think><set name="interest-vuln">false</set></think>
+      <template><srai>XNETQUESTION</srai></template>
+  </category>
+  
+  <!-- Network Engineer -->
+  <category>
+      <pattern>XNETQUESTION</pattern>
+      <template>Are you interested in managing computer networks?</template>
+  </category>
+  <category>
+      <pattern>XNETJOBDESCRIPTION</pattern>
+      <template>A network engineer is responsible for the management of computer networks.</template>
+  </category>
+  <category>
+      <pattern>YES</pattern>
+      <that>ARE YOU INTERESTED IN MANAGING COMPUTER NETWORKS</that>
+      <template><srai>XNETYES</srai></template>
+  </category>
+  <category>
+      <pattern>NO</pattern>
+      <that>ARE YOU INTERESTED IN MANAGING COMPUTER NETWORKS</that>
+      <template><srai>XNETNO</srai></template>
+  </category>
+  <category>
+      <pattern>XNETNYES</pattern>
+      <think><set name="interest-net">true</set></think>
+      <template><srai>XNETJOBDESCRIPTION</srai></template>
+  </category>
+  <category>
+      <pattern>XNETNO</pattern>
+      <think><set name="interest-net">false</set></think>
+      <template><srai>XNOMATCH</srai></template>
+  </category>
+  
+  <!-- No match -->
+  <category>
+      <pattern>XNOMATCH</pattern>
+      <template>Those are all the career paths I'm capable of matching right now. 
+      If you would like to discuss additional career options, please schedule an appointment with an advistor.</template>
+  </category>
+  
+  <!-- Database Administrator -->
+  <category>
+      <pattern>XDBQUESTION</pattern>
+      <template>Are you interested in designing and managing databases?</template>
+  </category>
+  <category>
+      <pattern>XDBJOBDESCRIPTION</pattern>
+      <template>A database administrator designs, builds, and support database 
+      systems. These database systems are critical to supporting other business 
+      systems.</template>
+  </category>
+  <category>
+      <pattern>YES</pattern>
+      <that>ARE YOU INTERESTED IN DESIGNING AND MANAGING DATABASES</that>
+      <template><srai>XDBYES</srai></template>
+  </category>
+  <category>
+      <pattern>NO</pattern>
+      <that>ARE YOU INTERESTED IN DESIGNING AND MANAGING DATABASES</that>
+      <template><srai>XDBNO</srai></template>
+  </category>
+  <category>
+      <pattern>XDBYES</pattern>
+      <think><set name="interest-db">true</set></think>
+      <template><srai>XDBJOBDESCRIPTION</srai></template>
+  </category>
+  <category>
+      <pattern>XDBNO</pattern>
+      <think><set name="interest-db">false</set></think>
+      <template><srai>XDBJOBDESCRIPTION</srai></template>
+  </category>
+  
+  <category>
+      <pattern>HELLO</pattern>
+      <template><srai>Hi</srai></template>
+  </category>
+  
+  <!-- Career questions -->
+  <category>
+      <pattern>I AM INTERESTED IN *</pattern>
+      <think><set name="interest"><star /></set></think>
+      <template>Interesting!</template>
+  </category>
+  <category>
+      <pattern>HOW DO I *</pattern>
+      <template>I'm not currently equipped to respond to questions related to how to <person><star /></person>. Please contact an advisor if you need assistance with that issue.</template>
+  </category>
+  
+  
+</aiml>
